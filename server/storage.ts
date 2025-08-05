@@ -1,4 +1,4 @@
-import { type Product, type InsertProduct, type Contact, type InsertContact } from "@shared/schema";
+import { type Product, type InsertProduct, type Contact, type InsertContact, type CartItem, type InsertCartItem, type Order, type InsertOrder } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -6,18 +6,34 @@ export interface IStorage {
   getProducts(): Promise<Product[]>;
   getProductsByCategory(category: string): Promise<Product[]>;
   getFeaturedProducts(): Promise<Product[]>;
+  getProductById(id: string): Promise<Product | undefined>;
   
   // Contacts
   createContact(contact: InsertContact): Promise<Contact>;
+  
+  // Cart
+  addToCart(item: InsertCartItem): Promise<CartItem>;
+  getCartItems(sessionId: string): Promise<CartItem[]>;
+  updateCartItemQuantity(id: string, quantity: number): Promise<CartItem | undefined>;
+  removeFromCart(id: string): Promise<boolean>;
+  clearCart(sessionId: string): Promise<boolean>;
+  
+  // Orders
+  createOrder(order: InsertOrder): Promise<Order>;
+  getOrderById(id: string): Promise<Order | undefined>;
 }
 
 export class MemStorage implements IStorage {
   private products: Map<string, Product>;
   private contacts: Map<string, Contact>;
+  private cartItems: Map<string, CartItem>;
+  private orders: Map<string, Order>;
 
   constructor() {
     this.products = new Map();
     this.contacts = new Map();
+    this.cartItems = new Map();
+    this.orders = new Map();
     this.initializeProducts();
   }
 
@@ -145,6 +161,10 @@ export class MemStorage implements IStorage {
     );
   }
 
+  async getProductById(id: string): Promise<Product | undefined> {
+    return this.products.get(id);
+  }
+
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = randomUUID();
     const contact: Contact = { 
@@ -156,6 +176,64 @@ export class MemStorage implements IStorage {
     };
     this.contacts.set(id, contact);
     return contact;
+  }
+
+  // Cart methods
+  async addToCart(insertItem: InsertCartItem): Promise<CartItem> {
+    const id = randomUUID();
+    const cartItem: CartItem = { 
+      ...insertItem, 
+      id,
+      quantity: insertItem.quantity || 1
+    };
+    this.cartItems.set(id, cartItem);
+    return cartItem;
+  }
+
+  async getCartItems(sessionId: string): Promise<CartItem[]> {
+    return Array.from(this.cartItems.values()).filter(
+      item => item.sessionId === sessionId
+    );
+  }
+
+  async updateCartItemQuantity(id: string, quantity: number): Promise<CartItem | undefined> {
+    const cartItem = this.cartItems.get(id);
+    if (cartItem) {
+      cartItem.quantity = quantity;
+      this.cartItems.set(id, cartItem);
+      return cartItem;
+    }
+    return undefined;
+  }
+
+  async removeFromCart(id: string): Promise<boolean> {
+    return this.cartItems.delete(id);
+  }
+
+  async clearCart(sessionId: string): Promise<boolean> {
+    const itemsToDelete = Array.from(this.cartItems.entries())
+      .filter(([, item]) => item.sessionId === sessionId)
+      .map(([id]) => id);
+    
+    itemsToDelete.forEach(id => this.cartItems.delete(id));
+    return itemsToDelete.length > 0;
+  }
+
+  // Order methods
+  async createOrder(insertOrder: InsertOrder): Promise<Order> {
+    const id = randomUUID();
+    const order: Order = { 
+      ...insertOrder, 
+      id,
+      status: insertOrder.status || "pending",
+      createdAt: new Date()
+    };
+    this.orders.set(id, order);
+    return order;
+  }
+
+  async getOrderById(id: string): Promise<Order | undefined> {
+    return this.orders.get(id);
   }
 }
 

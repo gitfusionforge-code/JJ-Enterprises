@@ -2,7 +2,17 @@
 
 ## Overview
 
-JJ Furnitures is a modern, full-stack e-commerce website built for a furniture company. The application features a beautiful, responsive frontend showcasing furniture products with categories like sofas, chairs, tables, bedroom, and office furniture. It includes product galleries, featured collections, company information, customer testimonials, and a contact form. The backend provides RESTful APIs for managing products and handling contact submissions.
+JJ Furnitures is a modern, full-stack e-commerce website built for a furniture company. The application features a beautiful, responsive frontend showcasing furniture products with categories like sofas, chairs, tables, bedroom, and office furniture. It includes product galleries, featured collections, company information, customer testimonials, and a contact form. The backend provides RESTful APIs for managing products, handling contact submissions, and processing e-commerce transactions.
+
+## Recent Changes (Latest Update: January 2025)
+
+### E-commerce Functionality Added
+- **Shopping Cart System**: Complete cart management with add, update, remove, and clear functionality
+- **Test Payment Processing**: Mock payment system for testing checkout flow without real transactions
+- **Order Management**: Order creation and tracking system for completed purchases
+- **Session-based Cart**: Cart persistence using browser session storage
+- **Currency Conversion**: All prices converted from USD to Indian Rupees (INR) with ₹ symbol
+- **Responsive Cart UI**: Mobile-friendly cart and checkout pages with proper accessibility
 
 ## User Preferences
 
@@ -23,8 +33,9 @@ Preferred communication style: Simple, everyday language.
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js framework for RESTful API development
 - **Language**: TypeScript throughout the entire application stack
-- **API Design**: RESTful endpoints for products and contacts with proper HTTP status codes
+- **API Design**: RESTful endpoints for products, contacts, cart management, and order processing with proper HTTP status codes
 - **Request/Response**: JSON-based communication with structured error handling
+- **E-commerce APIs**: Cart operations (add, update, remove, clear) and test payment processing
 - **Development**: tsx for TypeScript execution in development mode
 
 ### Data Storage Solutions
@@ -35,8 +46,10 @@ Preferred communication style: Simple, everyday language.
 - **Session Management**: connect-pg-simple for PostgreSQL session storage
 
 ### Data Models
-- **Products**: Complete product catalog with id, name, description, price, category, image URLs, and featured status
+- **Products**: Complete product catalog with id, name, description, price (in INR), category, image URLs, and featured status
 - **Contacts**: Customer inquiry system capturing personal information, interests, and messages
+- **Cart Items**: Shopping cart items with product references, quantities, and session management
+- **Orders**: Order records with customer information, total amounts, order status, and item details
 - **Categories**: Organized product categorization (sofas, chairs, tables, bedroom, office)
 
 ### Authentication and Authorization

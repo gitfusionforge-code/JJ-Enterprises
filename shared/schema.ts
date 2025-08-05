@@ -1,4 +1,4 @@
-import { pgTable, text, varchar, decimal, integer } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, decimal, integer, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -22,6 +22,25 @@ export const contacts = pgTable("contacts", {
   message: text("message"),
 });
 
+// Cart items schema for shopping cart
+export const cartItems = pgTable("cart_items", {
+  id: varchar("id").primaryKey(),
+  productId: varchar("product_id").notNull(),
+  quantity: integer("quantity").notNull().default(1),
+  sessionId: varchar("session_id").notNull(),
+});
+
+// Orders schema for test payments
+export const orders = pgTable("orders", {
+  id: varchar("id").primaryKey(),
+  customerName: text("customer_name").notNull(),
+  customerEmail: text("customer_email").notNull(),
+  totalAmount: text("total_amount").notNull(),
+  status: text("status").notNull().default("pending"),
+  items: text("items").notNull(), // JSON string of cart items
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 export const insertProductSchema = createInsertSchema(products).omit({
   id: true,
 });
@@ -30,7 +49,20 @@ export const insertContactSchema = createInsertSchema(contacts).omit({
   id: true,
 });
 
+export const insertCartItemSchema = createInsertSchema(cartItems).omit({
+  id: true,
+});
+
+export const insertOrderSchema = createInsertSchema(orders).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type InsertProduct = z.infer<typeof insertProductSchema>;
 export type Product = typeof products.$inferSelect;
 export type InsertContact = z.infer<typeof insertContactSchema>;
 export type Contact = typeof contacts.$inferSelect;
+export type CartItem = typeof cartItems.$inferSelect;
+export type InsertCartItem = z.infer<typeof insertCartItemSchema>;
+export type Order = typeof orders.$inferSelect;
+export type InsertOrder = z.infer<typeof insertOrderSchema>;

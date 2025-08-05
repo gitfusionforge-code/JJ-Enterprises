@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { CartButton } from "@/components/cart-button";
 import type { Product } from "@shared/schema";
 
 export default function ProductsGallery() {
@@ -105,9 +106,10 @@ export default function ProductsGallery() {
                 <p className="text-gray-600 text-sm mb-3 line-clamp-2" data-testid={`text-product-description-${product.id}`}>
                   {product.description}
                 </p>
-                <p className="text-lg sm:text-xl font-semibold text-rich-brown" data-testid={`text-product-price-${product.id}`}>
+                <p className="text-lg sm:text-xl font-semibold text-rich-brown mb-4" data-testid={`text-product-price-${product.id}`}>
                   ₹{product.price}
                 </p>
+                <CartButton productId={product.id} className="w-full" />
               </div>
             </div>
           ))}

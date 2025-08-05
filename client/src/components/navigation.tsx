@@ -1,9 +1,30 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { CartIcon } from "@/components/cart-button";
+import { getSessionId } from "@/lib/cart";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
+  const sessionId = getSessionId();
+
+  // Get cart item count
+  const { data: cartItems = [] } = useQuery({
+    queryKey: ["/api/cart", sessionId],
+    queryFn: async () => {
+      try {
+        const response = await apiRequest("GET", `/api/cart/${sessionId}`);
+        return await response.json();
+      } catch {
+        return [];
+      }
+    },
+  });
+
+  const cartItemCount = cartItems.length;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -52,11 +73,19 @@ export default function Navigation() {
               >
                 Contact
               </button>
+              <CartIcon 
+                itemCount={cartItemCount} 
+                onClick={() => setLocation('/cart')} 
+              />
             </div>
           </div>
           
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button and cart */}
+          <div className="md:hidden flex items-center gap-2">
+            <CartIcon 
+              itemCount={cartItemCount} 
+              onClick={() => setLocation('/cart')} 
+            />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-charcoal hover:text-rich-brown"

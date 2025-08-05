@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { CartButton } from "@/components/cart-button";
 import type { Product } from "@shared/schema";
 
 export default function FeaturedProducts() {
@@ -65,9 +66,10 @@ export default function FeaturedProducts() {
                 <p className="text-gray-600 mb-3 text-sm sm:text-base line-clamp-2" data-testid={`text-product-description-${product.id}`}>
                   {product.description}
                 </p>
-                <p className="text-xl sm:text-2xl font-semibold text-rich-brown" data-testid={`text-product-price-${product.id}`}>
+                <p className="text-xl sm:text-2xl font-semibold text-rich-brown mb-4" data-testid={`text-product-price-${product.id}`}>
                   ₹{product.price}
                 </p>
+                <CartButton productId={product.id} className="w-full" />
               </div>
             </div>
           ))}
