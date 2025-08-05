@@ -63,16 +63,16 @@ export default function ProductsGallery() {
         </div>
 
         {/* Category Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 px-4">
           {categories.map((category) => (
             <Button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
               variant={activeCategory === category.id ? "default" : "secondary"}
-              className={`px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-200 text-sm sm:text-base ${
                 activeCategory === category.id
-                  ? "bg-rich-brown text-white hover:bg-opacity-90"
-                  : "bg-gray-100 text-charcoal hover:bg-gray-200"
+                  ? "bg-rich-brown text-white hover:bg-opacity-90 scale-105"
+                  : "bg-gray-100 text-charcoal hover:bg-gray-200 hover:scale-105"
               }`}
               data-testid={`button-category-${category.id}`}
             >
@@ -82,30 +82,33 @@ export default function ProductsGallery() {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="group" data-testid={`product-${product.id}`}>
-              <div className="relative overflow-hidden rounded-xl mb-4">
+            <div key={product.id} className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden" data-testid={`product-${product.id}`}>
+              <div className="relative overflow-hidden">
                 <img 
                   src={product.imageUrl} 
                   alt={product.name}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {product.featured === 1 && (
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
-                    New
+                  <div className="absolute top-3 right-3 bg-rich-brown text-white px-2 py-1 rounded-full text-xs font-medium">
+                    Featured
                   </div>
                 )}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
-              <h3 className="font-playfair font-semibold text-lg mb-1" data-testid={`text-product-name-${product.id}`}>
-                {product.name}
-              </h3>
-              <p className="text-gray-600 text-sm mb-2" data-testid={`text-product-description-${product.id}`}>
-                {product.description}
-              </p>
-              <p className="text-xl font-semibold text-rich-brown" data-testid={`text-product-price-${product.id}`}>
-                ${product.price}
-              </p>
+              <div className="p-4">
+                <h3 className="font-playfair font-semibold text-base sm:text-lg mb-2 line-clamp-2" data-testid={`text-product-name-${product.id}`}>
+                  {product.name}
+                </h3>
+                <p className="text-gray-600 text-sm mb-3 line-clamp-2" data-testid={`text-product-description-${product.id}`}>
+                  {product.description}
+                </p>
+                <p className="text-lg sm:text-xl font-semibold text-rich-brown" data-testid={`text-product-price-${product.id}`}>
+                  ${product.price}
+                </p>
+              </div>
             </div>
           ))}
         </div>

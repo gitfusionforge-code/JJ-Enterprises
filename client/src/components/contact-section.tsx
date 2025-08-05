@@ -63,14 +63,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-cream-beige/30">
+    <section id="contact" className="py-16 sm:py-20 bg-cream-beige/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-charcoal mb-4">Visit Our Showroom</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Experience our furniture collections in person and receive personalized design consultation</p>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-playfair font-bold text-charcoal mb-4">Visit Our Showroom</h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">Experience our furniture collections in person and receive personalized design consultation</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <Card className="bg-white shadow-sm">
@@ -206,7 +206,7 @@ export default function ContactSection() {
                   <Input
                     id="phone"
                     type="tel"
-                    value={formData.phone}
+                    value={formData.phone || ""}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
                     className="w-full"
                     data-testid="input-phone"
@@ -217,7 +217,7 @@ export default function ContactSection() {
                   <label htmlFor="interest" className="block text-sm font-medium text-charcoal mb-2">
                     Interest
                   </label>
-                  <Select value={formData.interest} onValueChange={(value) => handleInputChange("interest", value)}>
+                  <Select value={formData.interest || ""} onValueChange={(value) => handleInputChange("interest", value)}>
                     <SelectTrigger data-testid="select-interest">
                       <SelectValue placeholder="Select your interest" />
                     </SelectTrigger>
@@ -240,7 +240,7 @@ export default function ContactSection() {
                     id="message"
                     rows={4}
                     placeholder="Tell us about your project or any questions you have..."
-                    value={formData.message}
+                    value={formData.message || ""}
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     className="w-full resize-none"
                     data-testid="textarea-message"

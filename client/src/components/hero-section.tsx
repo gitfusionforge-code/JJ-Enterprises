@@ -20,17 +20,17 @@ export default function HeroSection() {
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-        <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold mb-6 leading-tight">
           Crafting Your
-          <span className="block text-cream-beige">Perfect Home</span>
+          <span className="block text-cream-beige mt-2">Perfect Home</span>
         </h1>
-        <p className="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto leading-relaxed px-4">
           Discover exceptional furniture that transforms your space into a reflection of your style and personality.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md sm:max-w-none mx-auto">
           <Button 
             onClick={() => scrollToSection('products')}
-            className="bg-rich-brown text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium text-lg"
+            className="bg-rich-brown text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-opacity-90 hover:scale-105 transition-all duration-200 font-medium text-base sm:text-lg w-full sm:w-auto"
             data-testid="button-shop-collection"
           >
             Shop Collection
@@ -38,7 +38,7 @@ export default function HeroSection() {
           <Button 
             onClick={() => scrollToSection('about')}
             variant="outline"
-            className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-charcoal transition-all duration-200 font-medium text-lg"
+            className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-200 font-medium text-base sm:text-lg w-full sm:w-auto"
             data-testid="button-our-story"
           >
             Our Story
