@@ -66,7 +66,7 @@ export default function FeaturedProducts() {
                   {product.description}
                 </p>
                 <p className="text-xl sm:text-2xl font-semibold text-rich-brown" data-testid={`text-product-price-${product.id}`}>
-                  ${product.price}
+                  ₹{product.price}
                 </p>
               </div>
             </div>

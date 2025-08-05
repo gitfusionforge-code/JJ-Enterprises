@@ -27,7 +27,7 @@ export class MemStorage implements IStorage {
         id: "1",
         name: "Harper Sectional Sofa",
         description: "Premium comfort meets contemporary design",
-        price: "2899.00",
+        price: "241,917.00",
         category: "sofas",
         imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
         featured: 1
@@ -36,7 +36,7 @@ export class MemStorage implements IStorage {
         id: "2",
         name: "Madison Dining Set",
         description: "Crafted walnut wood with luxury seating",
-        price: "3499.00",
+        price: "292,067.00",
         category: "tables",
         imageUrl: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
         featured: 1
@@ -45,7 +45,7 @@ export class MemStorage implements IStorage {
         id: "3",
         name: "Aurora Platform Bed",
         description: "Minimalist elegance for peaceful rest",
-        price: "1999.00",
+        price: "166,783.00",
         category: "bedroom",
         imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
         featured: 1
@@ -54,7 +54,7 @@ export class MemStorage implements IStorage {
         id: "4",
         name: "Contemporary Sectional",
         description: "Premium fabric upholstery",
-        price: "2299.00",
+        price: "191,833.00",
         category: "sofas",
         imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -63,7 +63,7 @@ export class MemStorage implements IStorage {
         id: "5",
         name: "Luxe Dining Chair",
         description: "Velvet upholstery, oak legs",
-        price: "399.00",
+        price: "33,292.00",
         category: "chairs",
         imageUrl: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -72,7 +72,7 @@ export class MemStorage implements IStorage {
         id: "6",
         name: "Walnut Dining Table",
         description: "Solid wood construction",
-        price: "1899.00",
+        price: "158,508.00",
         category: "tables",
         imageUrl: "https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -81,7 +81,7 @@ export class MemStorage implements IStorage {
         id: "7",
         name: "Platform Bed Set",
         description: "Includes nightstands",
-        price: "2599.00",
+        price: "216,883.00",
         category: "bedroom",
         imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -90,7 +90,7 @@ export class MemStorage implements IStorage {
         id: "8",
         name: "Executive Desk",
         description: "Solid oak construction",
-        price: "1299.00",
+        price: "108,408.00",
         category: "office",
         imageUrl: "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -99,7 +99,7 @@ export class MemStorage implements IStorage {
         id: "9",
         name: "Comfort Sofa",
         description: "Plush cushioning",
-        price: "1799.00",
+        price: "150,158.00",
         category: "sofas",
         imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -108,7 +108,7 @@ export class MemStorage implements IStorage {
         id: "10",
         name: "Round Coffee Table",
         description: "Glass top, metal base",
-        price: "899.00",
+        price: "75,067.00",
         category: "tables",
         imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -117,7 +117,7 @@ export class MemStorage implements IStorage {
         id: "11",
         name: "Accent Armchair",
         description: "Premium fabric, solid wood",
-        price: "699.00",
+        price: "58,342.00",
         category: "chairs",
         imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
         featured: 0
@@ -147,7 +147,13 @@ export class MemStorage implements IStorage {
 
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = randomUUID();
-    const contact: Contact = { ...insertContact, id };
+    const contact: Contact = { 
+      ...insertContact, 
+      id,
+      phone: insertContact.phone || null,
+      interest: insertContact.interest || null,
+      message: insertContact.message || null
+    };
     this.contacts.set(id, contact);
     return contact;
   }

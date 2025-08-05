@@ -106,7 +106,7 @@ export default function ProductsGallery() {
                   {product.description}
                 </p>
                 <p className="text-lg sm:text-xl font-semibold text-rich-brown" data-testid={`text-product-price-${product.id}`}>
-                  ${product.price}
+                  ₹{product.price}
                 </p>
               </div>
             </div>
