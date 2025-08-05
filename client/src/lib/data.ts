@@ -25,11 +25,11 @@ export const testimonials = [
 export const storeInfo = {
   name: "JJ Furnitures Showroom",
   address: {
-    street: "1245 Design Avenue",
-    city: "San Francisco, CA 94110"
+    street: "115/NA, Anbu Nagar, Kuruchi",
+    city: "Coimbatore, Tamil Nadu - 641023"
   },
-  phone: "(415) 555-0123",
-  email: "info@jjfurnitures.com",
+  phone: "+91 95663 20512",
+  email: "sjr8585@gmail.com",
   hours: {
     weekdays: "Monday - Friday: 10:00 AM - 7:00 PM",
     saturday: "Saturday: 10:00 AM - 6:00 PM",

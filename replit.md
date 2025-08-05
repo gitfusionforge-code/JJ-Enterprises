@@ -18,6 +18,12 @@ JJ Furnitures is a modern, full-stack e-commerce website built for a furniture c
 
 Preferred communication style: Simple, everyday language.
 
+## Business Information
+- **Business Name**: JJ Furnitures
+- **Address**: 115/NA, Anbu Nagar, Kuruchi, Coimbatore – 641023, Tamil Nadu, India
+- **Phone**: +91 95663 20512
+- **Email**: sjr8585@gmail.com
+
 ## System Architecture
 
 ### Frontend Architecture
