@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="sm:col-span-2 lg:col-span-2">
-            <h3 className="text-xl sm:text-2xl font-playfair font-bold mb-4">JJ Furnitures</h3>
+            <h3 className="text-xl sm:text-2xl font-playfair font-bold mb-4">JJ Enterprises</h3>
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md text-sm sm:text-base">
               Creating beautiful, functional spaces with exceptional furniture that stands the test of time. Quality craftsmanship meets contemporary design.
             </p>
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-600 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
-          <p className="text-gray-300 text-xs sm:text-sm">&copy; 2024 JJ Furnitures. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p className="text-gray-300 text-xs sm:text-sm">&copy; 2024 JJ Enterprises. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>

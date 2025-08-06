@@ -39,7 +39,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-xl sm:text-2xl font-playfair font-bold text-rich-brown">JJ Furnitures</h1>
+            <h1 className="text-xl sm:text-2xl font-playfair font-bold text-rich-brown">JJ Enterprises</h1>
           </div>
           
           {/* Desktop Navigation */}

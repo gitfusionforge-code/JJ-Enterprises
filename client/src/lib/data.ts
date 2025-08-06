@@ -18,12 +18,12 @@ export const testimonials = [
     name: "Lisa Brown",
     location: "Seattle, WA",
     avatar: "LB",
-    text: "Investment-quality furniture that will last for years. The bedroom set we purchased is stunning and well-crafted. Highly recommend JJ Furnitures!"
+    text: "Investment-quality furniture that will last for years. The bedroom set we purchased is stunning and well-crafted. Highly recommend JJ Enterprises!"
   }
 ];
 
 export const storeInfo = {
-  name: "JJ Furnitures Showroom",
+  name: "JJ Enterprises Showroom",
   address: {
     street: "115/NA, Anbu Nagar, Kuruchi",
     city: "Coimbatore, Tamil Nadu - 641023"

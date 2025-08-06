@@ -1,8 +1,8 @@
-# JJ Furnitures - Full-Stack E-commerce Website
+# JJ Enterprises - Full-Stack E-commerce Website
 
 ## Overview
 
-JJ Furnitures is a modern, full-stack e-commerce website built for a furniture company. The application features a beautiful, responsive frontend showcasing furniture products with categories like sofas, chairs, tables, bedroom, and office furniture. It includes product galleries, featured collections, company information, customer testimonials, and a contact form. The backend provides RESTful APIs for managing products, handling contact submissions, and processing e-commerce transactions.
+JJ Enterprises is a modern, full-stack e-commerce website built for a furniture company. The application features a beautiful, responsive frontend showcasing furniture products with categories like sofas, chairs, tables, bedroom, and office furniture. It includes product galleries, featured collections, company information, customer testimonials, and a contact form. The backend provides RESTful APIs for managing products, handling contact submissions, and processing e-commerce transactions.
 
 ## Recent Changes (Latest Update: January 2025)
 
@@ -19,7 +19,7 @@ JJ Furnitures is a modern, full-stack e-commerce website built for a furniture c
 Preferred communication style: Simple, everyday language.
 
 ## Business Information
-- **Business Name**: JJ Furnitures
+- **Business Name**: JJ Enterprises
 - **Address**: 115/NA, Anbu Nagar, Kuruchi, Coimbatore – 641023, Tamil Nadu, India
 - **Phone**: +91 95663 20512
 - **Email**: sjr8585@gmail.com
