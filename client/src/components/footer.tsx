@@ -1,4 +1,5 @@
 import { Twitter, Facebook, Instagram, BookmarkPlus } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -113,7 +114,12 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-600 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
-          <p className="text-gray-300 text-xs sm:text-sm">&copy; 2024 JJ Enterprises. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p className="text-gray-300 text-xs sm:text-sm">
+            &copy; 2024 JJ Enterprises. All rights reserved. | 
+            <Link href="/privacy-policy" className="text-gray-300 hover:text-white transition-colors duration-200"> Privacy Policy </Link> | 
+            <Link href="/terms-and-conditions" className="text-gray-300 hover:text-white transition-colors duration-200"> Terms of Service </Link> | 
+            <Link href="/refund-policy" className="text-gray-300 hover:text-white transition-colors duration-200"> Refund Policy </Link>
+          </p>
         </div>
       </div>
     </footer>
